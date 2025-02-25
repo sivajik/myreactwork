@@ -4,6 +4,8 @@ const heading = React.createElement(
   "hello world from react 123"
 );
 
+console.log(heading);
+
 const heading2 = React.createElement(
   "h2",
   { id: "heading2", key: "key2" },
