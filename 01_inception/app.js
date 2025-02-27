@@ -16,8 +16,8 @@ const heading = (
 // 2. Functional components -> new way of writing code
 
 const HeadingComponent = () => (
-  <div id="comp1">
-    <h1 id="heading">Hello World Functional Componenet</h1>
+  <div id="container">
+    <h1 className="heading">Hello World Functional Componenet</h1>
   </div>
 );
 
