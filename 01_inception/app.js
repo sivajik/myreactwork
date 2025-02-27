@@ -1,7 +1,10 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const heading = React.createElement(
   "h1",
   { id: "heading", key: "key1" },
-  "hello world from react 123"
+  "hello world from react 123 😜"
 );
 
 console.log(heading);
