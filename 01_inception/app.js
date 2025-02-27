@@ -1,28 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-  "h1",
-  { id: "heading", key: "key1" },
-  "hello world from react 123 😜"
+//const heading = React.createElement("h1", { id: "heading" }, "hello world ✨");
+//console.log(heading);
+
+// React Element
+const heading = (
+  <h1 className="head" tabIndex="1">
+    Namaste React using JSX
+  </h1>
 );
 
-console.log(heading);
+// React Componenet
+// 1. Class base components -> old way of writing code
+// 2. Functional components -> new way of writing code
 
-const heading2 = React.createElement(
-  "h2",
-  { id: "heading2", key: "key2" },
-  "hello world h2 from react"
+const HeadingComponent = () => (
+  <div id="comp1">
+    <h1 id="heading">Hello World Functional Componenet</h1>
+  </div>
 );
-
-const child = React.createElement("div", { id: "child" }, [heading, heading2]);
-const child2 = React.createElement("div", { id: "child2" }, [
-  heading,
-  heading2,
-]);
-const parent = React.createElement("div", { id: "parent" }, [child, child2]);
-
-console.log(parent);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent />);
