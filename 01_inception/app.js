@@ -5,21 +5,18 @@ import ReactDOM from "react-dom/client";
 //console.log(heading);
 
 // React Element
-const TitleComponent = () => (
+const title = (
   <h1 className="head" tabIndex="1">
     Namaste React using JSX
   </h1>
 );
 
-// React Componenet
-// 1. Class base components -> old way of writing code
-// 2. Functional components -> new way of writing code
-const number = 10000;
+const data = 1000;
 
 const HeadingComponent = () => (
   <div id="container">
-    <TitleComponent />
-    <h2>{number}</h2>
+    {data}
+    {title}
     <h1 className="heading">Hello World Functional Componenet</h1>
   </div>
 );
