@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 //console.log(heading);
 
 // React Element
-const title = (
+const Title = () => (
   <h1 className="head" tabIndex="1">
     Namaste React using JSX
   </h1>
@@ -15,8 +15,8 @@ const data = 1000;
 
 const HeadingComponent = () => (
   <div id="container">
-    {data}
-    {title}
+    {Title()}
+    <Title />
     <h1 className="heading">Hello World Functional Componenet</h1>
   </div>
 );
