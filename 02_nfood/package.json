@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "01_inception": "file:",
+    "02_nfood": "file:",
     "react": "^18.0.2",
     "react-dom": "^18.0.2"
   },
