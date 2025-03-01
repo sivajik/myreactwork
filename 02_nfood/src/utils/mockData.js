@@ -27,7 +27,7 @@ const resList = [
       id: 3,
       name: "Kannur Foods",
       costForTwo: 40000,
-      avgRating: 3.6,
+      avgRating: 4.8,
       cuisines: ["Chat", "Roti"],
       deliveryTime: 46,
     },
