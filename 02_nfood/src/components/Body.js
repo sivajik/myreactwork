@@ -1,81 +1,29 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [listOfRestaurants, setTheListOfRestaurans] = useState(
-    resList /*[
-    {
-      type: "restaurant",
-      data: {
-        id: 1,
-        name: "KFC",
-        costForTwo: 40000,
-        avgRating: 3.8,
-        cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],
-        deliveryTime: 36,
-      },
-    },
-    {
-      type: "restaurant",
-      data: {
-        id: 2,
-        name: "Meghana Foods",
-        costForTwo: 50000,
-        avgRating: 4.2,
-        cuisines: ["Indian", "Biryani"],
-        deliveryTime: 56,
-      },
-    },
-    {
-      type: "restaurant",
-      data: {
-        id: 3,
-        name: "Kannur Foods",
-        costForTwo: 40000,
-        avgRating: 4.6,
-        cuisines: ["Chat", "Roti"],
-        deliveryTime: 46,
-      },
-    },
-  ]*/
-  );
+  const [listOfRestaurants, setTheListOfRestaurans] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  /*let listOfRestaurantsJS = [
-    {
-      type: "restaurant",
-      data: {
-        id: 1,
-        name: "KFC",
-        costForTwo: 40000,
-        avgRating: 3.8,
-        cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],
-        deliveryTime: 36,
-      },
-    },
-    {
-      type: "restaurant",
-      data: {
-        id: 2,
-        name: "Meghana Foods",
-        costForTwo: 50000,
-        avgRating: 4.2,
-        cuisines: ["Indian", "Biryani"],
-        deliveryTime: 56,
-      },
-    },
-    {
-      type: "restaurant",
-      data: {
-        id: 3,
-        name: "Kannur Foods",
-        costForTwo: 40000,
-        avgRating: 4.6,
-        cuisines: ["Chat", "Roti"],
-        deliveryTime: 46,
-      },
-    },
-  ];*/
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(
+      json.data.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setTheListOfRestaurans(
+      json.data.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+
+  if (listOfRestaurants.length == 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div className="body">
@@ -85,10 +33,9 @@ const Body = () => {
           onClick={() => {
             setTheListOfRestaurans(
               listOfRestaurants.filter(
-                (eachRes) => eachRes.data.avgRating > 4.0
+                (eachRes) => eachRes.info.avgRating > 4.5
               )
             );
-            console.log(listOfRestaurants);
           }}
         >
           Top Rated Restaurans
@@ -97,7 +44,7 @@ const Body = () => {
 
       <div className="res-container">
         {listOfRestaurants.map((eachRes) => (
-          <RestaurantCard key={eachRes.data.id} resData={eachRes} />
+          <RestaurantCard key={eachRes.info.id} resData={eachRes} />
         ))}
       </div>
     </div>

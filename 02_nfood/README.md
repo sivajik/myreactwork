@@ -8,3 +8,7 @@
 - useEffect()
 
 # React Reconciliation Alorithms (react fiber)
+
+# useEffect
+
+- called 'AFTER' component is rendered.
