@@ -32,6 +32,8 @@
   width: 200px;
   padding: 5px;
   margin: 5px;
+  flex: wrap;
+  word-wrap: break-word;
 }
 
 .res-card:hover {
