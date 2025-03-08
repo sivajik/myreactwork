@@ -1,8 +1,16 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+
+  console.log("hader render");
+  // if no dependency array -> useEffect caleld on each render
+  // if dependency array is [] -> useEffect called on 'initial' render
+  // if dependency array is [btnName] -> useEffect called each time btnName is changed.
+  useEffect(() => {
+    console.log("useefect called....");
+  }, [btnName]);
 
   const btnClicked = () => {
     btnName == "Login" ? setBtnName("Logout") : setBtnName("Login");

@@ -17,7 +17,8 @@
     "01_inception": "file:",
     "02_nfood": "file:",
     "react": "^18.0.2",
-    "react-dom": "^18.0.2"
+    "react-dom": "^18.0.2",
+    "react-router-dom": "^6.11.2"
   },
   "browserslist": [
     "last 2 versions"
