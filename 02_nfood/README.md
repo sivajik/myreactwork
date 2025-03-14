@@ -12,3 +12,8 @@
 # useEffect
 
 - called 'AFTER' component is rendered.
+
+# Two types of routing in web apps
+
+- Client side routing : Does not hit server and just components are interchanged.
+- Server side routing : Hits the server and reloads the page
