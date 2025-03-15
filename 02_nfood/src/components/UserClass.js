@@ -22,6 +22,16 @@ class UserClass extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    console.log(
+      "Component Did Update with state variables changed. we are in updating phase"
+    );
+  }
+
+  componentWillUnmount() {
+    console.log("Component Did unmount");
+  }
+
   render() {
     const { name, location, avatar_url } = this.state?.userInfo;
     return (
